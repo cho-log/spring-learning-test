@@ -1,0 +1,3 @@
+rootProject.name = 'spring-learning-test'
+
+include 'spring-mvc-1'
