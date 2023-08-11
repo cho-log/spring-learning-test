@@ -8,13 +8,23 @@ import org.springframework.http.HttpStatus;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
-public class RequestStaticPageTest {
+public class ResponseStaticTest {
 
     @Test
-    void requestStaticPage() {
+    void responseIndexPage() {
         var response = RestAssured
                 .given().log().all()
                 .when().get("/")
+                .then().log().all().extract();
+
+        assertThat(response.statusCode()).isEqualTo(HttpStatus.OK.value());
+    }
+
+    @Test
+    void responseStaticPage() {
+        var response = RestAssured
+                .given().log().all()
+                .when().get("/hello.html")
                 .then().log().all().extract();
 
         assertThat(response.statusCode()).isEqualTo(HttpStatus.OK.value());
