@@ -44,7 +44,7 @@ resources
 
 ### 학습 테스트 - template engine
 - 테스트 메서드: `cholog.ResponseTemplatesTest.responseTemplatesPage`
-- `cholog.ResponseController.world` 메서드를 작성하여 학습 테스트를 성공시키세요.
+- `cholog.MemberController.world` 메서드를 작성하여 학습 테스트를 성공시키세요.
 
 ### 참조
 - [Spring - Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
@@ -59,7 +59,7 @@ resources
 
 ### 학습 테스트 - json response
 - 테스트 메서드: `cholog.ResponseJsonTest.responseJson`
-- `cholog.ResponseController.json` 메서드를 작성하여 학습 테스트를 성공시키세요.
+- `cholog.MemberController.json` 메서드를 작성하여 학습 테스트를 성공시키세요.
 
 ### 참조
 - [Spring - @ResponseBody](https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-controller/ann-methods/responsebody.html#page-title)
