@@ -2,3 +2,4 @@ rootProject.name = 'spring-learning-test'
 
 include 'spring-mvc-1'
 include 'spring-mvc-2'
+include 'spring-jdbc-1'
