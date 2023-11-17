@@ -8,7 +8,7 @@ import org.springframework.http.HttpStatus;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
-public class ResponseStaticTest {
+class ResponseStaticTest {
 
     @Test
     void responseIndexPage() {
