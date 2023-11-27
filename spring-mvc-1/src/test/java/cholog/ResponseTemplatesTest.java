@@ -11,23 +11,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 class ResponseTemplatesTest {
 
     @Test
-    void responseTemplatesPage() {
-        var response = RestAssured
-                .given().log().all()
-                .when().get("/template?name=Brie")
-                .then().log().all().extract();
-
-        assertThat(response.statusCode()).isEqualTo(HttpStatus.OK.value());
-        assertThat(response.asString()).contains("Hello, Brie!");
-    }
-
-    @Test
     void responseTemplatesHelloPage() {
         var response = RestAssured
             .given().log().all()
-            .when().get("/hello")
+            .when().get("/hello?name=Brie")
             .then().log().all().extract();
 
         assertThat(response.statusCode()).isEqualTo(HttpStatus.OK.value());
+        assertThat(response.asString()).contains("Hello, Brie!");
     }
 }
