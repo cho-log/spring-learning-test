@@ -52,7 +52,7 @@ resources/static 아래의 경로에 위치한 파일은 접근이 가능합니�
 정적 페이지 설정을 연습하는 학습 테스트 입니다.
 - 테스트 메서드: `cholog.ResponseStaticTest.responseStaticPage`
 - 수행 방법
-  - `resources/templets/hello.html` 을 이용하여 학습 테스트를 성공시키세요.
+  - `resources/templates/hello.html` 을 이용하여 학습 테스트를 성공시키세요.
   - 정적 페이지 설정을 위해 적절한 위치에 이동을 하거나 파일명을 변경해보세요.
 
 <br>
@@ -78,7 +78,7 @@ Model 객체는 컨트롤러 메서드의 파라미터로 주입 받을 수 있�
 - 테스트 메서드: `cholog.ResponseTemplatesTest.responseTemplatesPage`
 - 수행 방법
   - `cholog.MemberController.world` 메서드를 작성하여 학습 테스트를 성공시키세요.
-  - `/hello` 요청 시 `resources/templets/hello.html` 페이지가 응답할 수 있도록 설정하세요. 
+  - `/hello` 요청 시 `resources/templates/hello.html` 페이지가 응답할 수 있도록 설정하세요. 
 
 <br>
 
