@@ -11,7 +11,7 @@ public class MemberController {
     @GetMapping("/hello")
     public String world(@RequestParam(name = "name", required = false, defaultValue = "World") String name, Model model) {
         model.addAttribute("name", name);
-        return "template";
+        return "hello";
     }
 
     @GetMapping("/json")
