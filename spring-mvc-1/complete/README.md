@@ -78,7 +78,7 @@ Model 객체는 컨트롤러 메서드의 파라미터로 주입 받을 수 있�
 - 테스트 메서드: `cholog.ResponseTemplatesTest.responseTemplatesPage`
 - 수행 방법
   - `cholog.MemberController.world` 메서드를 작성하여 학습 테스트를 성공시키세요.
-  - `/template` 요청 시 `resources/templates/hello.html` 페이지가 응답할 수 있도록 설정하세요. 
+  - `/hello` 요청 시 `resources/templates/hello.html` 페이지가 응답할 수 있도록 설정하세요. 
 
 <br>
 
