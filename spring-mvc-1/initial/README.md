@@ -2,9 +2,9 @@
 
 <br>
 
-스프링 부트는 정적 페이지와 템플릿 시작 페이지를 모두 지원합니다. 
-먼저 구성된 정적 콘텐츠 위치에서 index.html 파일을 찾습니다. 
-하나라도 없으면 index 템플릿을 찾습니다. 
+스프링 부트는 정적 페이지와 템플릿 시작 페이지를 모두 지원합니다.
+먼저 구성된 정적 콘텐츠 위치에서 index.html 파일을 찾습니다.
+하나라도 없으면 index 템플릿을 찾습니다.
 둘 중 하나라도 찾으면 자동으로 응용 프로그램 시작 페이지로 사용됩니다.
 
 <br> 
@@ -43,7 +43,7 @@ welcome page 설정을 연습하는 학습 테스트 입니다.
 
 <br>
 
-resources/static 아래의 경로에 위치한 파일은 접근이 가능합니다. 
+resources/static 아래의 경로에 위치한 파일은 접근이 가능합니다.
 서비스에서 필요한 정적 자원들을 해당 경로에 위치시킨 후 활용할 수 있습니다.
 
 <br>
@@ -52,7 +52,7 @@ resources/static 아래의 경로에 위치한 파일은 접근이 가능합니�
 정적 페이지 설정을 연습하는 학습 테스트 입니다.
 - 테스트 메서드: `cholog.ResponseStaticTest.responseStaticPage`
 - 수행 방법
-  - `resources/templates/hello.html` 을 이용하여 학습 테스트를 성공시키세요.
+  - `resources/templates/static.html` 을 이용하여 학습 테스트를 성공시키세요.
   - 정적 페이지 설정을 위해 적절한 위치에 이동을 하거나 파일명을 변경해보세요.
 
 <br>
@@ -78,7 +78,7 @@ Model 객체는 컨트롤러 메서드의 파라미터로 주입 받을 수 있�
 - 테스트 메서드: `cholog.ResponseTemplatesTest.responseTemplatesPage`
 - 수행 방법
   - `cholog.MemberController.world` 메서드를 작성하여 학습 테스트를 성공시키세요.
-  - `/hello` 요청 시 `resources/templates/hello.html` 페이지가 응답할 수 있도록 설정하세요. 
+  - `/hello` 요청 시 `resources/templates/hello.html` 페이지가 응답할 수 있도록 설정하세요.
 
 <br>
 

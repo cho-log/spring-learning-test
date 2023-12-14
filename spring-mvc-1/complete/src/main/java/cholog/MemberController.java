@@ -7,16 +7,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-public class ResponseController {
-    @GetMapping("/template")
-    public String template(@RequestParam(name = "name", required = false, defaultValue = "World") String name, Model model) {
+public class MemberController {
+    @GetMapping("/hello")
+    public String world(@RequestParam(name = "name", required = false, defaultValue = "World") String name, Model model) {
         model.addAttribute("name", name);
-        return "template";
+        return "hello";
     }
 
-    @GetMapping("/person")
+    @GetMapping("/json")
     @ResponseBody
-    public Person person() {
-        return new Person("Brown", 20);
+    public Person json() {
+        return new Person("brown", 20);
     }
 }
