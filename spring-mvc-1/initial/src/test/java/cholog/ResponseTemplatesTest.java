@@ -11,7 +11,7 @@ import org.springframework.http.HttpStatus;
 class ResponseTemplatesTest {
 
     @Test
-    void responseTemplatesPage() {
+    void responseTemplatesHelloPage() {
         var response = RestAssured
             .given().log().all()
             .when().get("/hello?name=Brie")

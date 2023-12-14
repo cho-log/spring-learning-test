@@ -14,12 +14,11 @@ class ResponseJsonTest {
     void responseJson() {
         var response = RestAssured
             .given().log().all()
-            .when().get("/person")
+            .when().get("/json")
             .then().log().all().extract();
 
         assertThat(response.statusCode()).isEqualTo(HttpStatus.OK.value());
-        assertThat(response.as(Person.class).getName()).isEqualTo("Brown");
+        assertThat(response.as(Person.class).getName()).isEqualTo("brown");
         assertThat(response.as(Person.class).getAge()).isEqualTo(20);
     }
-
 }
