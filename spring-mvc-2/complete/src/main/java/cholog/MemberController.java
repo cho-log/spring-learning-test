@@ -1,5 +1,10 @@
 package cholog;
 
+import java.net.URI;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+import java.util.concurrent.atomic.AtomicLong;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -9,14 +14,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import java.net.URI;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.concurrent.atomic.AtomicLong;
-
 @Controller
 public class MemberController {
+
     private List<Member> members = new ArrayList<>();
     private AtomicLong index = new AtomicLong(1);
 
@@ -35,9 +35,9 @@ public class MemberController {
     @PutMapping("/members/{id}")
     public ResponseEntity<Void> update(@RequestBody Member newMember, @PathVariable Long id) {
         Member member = members.stream()
-                .filter(it -> Objects.equals(it.getId(), id))
-                .findFirst()
-                .orElseThrow(RuntimeException::new);
+            .filter(it -> Objects.equals(it.getId(), id))
+            .findFirst()
+            .orElseThrow(RuntimeException::new);
 
         member.update(newMember);
         return ResponseEntity.ok().build();
@@ -46,9 +46,9 @@ public class MemberController {
     @DeleteMapping("/members/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         Member member = members.stream()
-                .filter(it -> Objects.equals(it.getId(), id))
-                .findFirst()
-                .orElseThrow(RuntimeException::new);
+            .filter(it -> Objects.equals(it.getId(), id))
+            .findFirst()
+            .orElseThrow(RuntimeException::new);
 
         members.remove(member);
 
