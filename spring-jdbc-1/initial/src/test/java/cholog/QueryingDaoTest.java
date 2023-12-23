@@ -27,9 +27,10 @@ public class QueryingDaoTest {
         jdbcTemplate.execute("CREATE TABLE customers(" +
                 "id SERIAL, first_name VARCHAR(255), last_name VARCHAR(255))");
 
-        List<Object[]> splitUpNames = Arrays.asList("John Woo", "Jeff Dean", "Josh Bloch", "Josh Long").stream()
-                .map(name -> name.split(" "))
-                .collect(Collectors.toList());
+        List<Object[]> splitUpNames = Arrays.asList("John Woo", "Jeff Dean", "Josh Bloch", "Josh Long")
+            .stream()
+            .map(name -> name.split(" "))
+            .collect(Collectors.toList());
 
         jdbcTemplate.batchUpdate("INSERT INTO customers(first_name, last_name) VALUES (?,?)", splitUpNames);
     }
@@ -61,5 +62,12 @@ public class QueryingDaoTest {
         List<Customer> customers = queryingDAO.findAllCustomers();
 
         assertThat(customers).hasSize(4);
+    }
+
+    @Test
+    void findCustomerByFirstName() {
+        List<Customer> customers = queryingDAO.findCustomerByFirstName("Josh");
+
+        assertThat(customers).hasSize(2);
     }
 }
