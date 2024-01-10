@@ -6,7 +6,13 @@ public class Customer {
     private String firstName;
     private String lastName;
 
-    protected Customer() {
+    public Customer() {
+    }
+
+    public Customer(Long id, String firstName, String lastName) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 
     public Customer(String firstName, String lastName) {
@@ -24,5 +30,9 @@ public class Customer {
 
     public String getLastName() {
         return lastName;
+    }
+
+    public void updateFirstName(String firstName) {
+        this.firstName = firstName;
     }
 }
