@@ -29,7 +29,7 @@ public class Book {
         return name;
     }
 
-    public Object getPublisher() {
+    public Publisher getPublisher() {
         return null;
     }
 

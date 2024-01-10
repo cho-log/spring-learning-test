@@ -14,8 +14,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ManyToManyTest {
     @Autowired
     private BookRepository bookRepository;
-    @Autowired
-    private AuthorRepository authorRepository;
 
     @PersistenceContext
     private EntityManager entityManager;
