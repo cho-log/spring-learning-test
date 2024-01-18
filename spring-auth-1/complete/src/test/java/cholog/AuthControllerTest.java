@@ -6,7 +6,6 @@ import cholog.auth.dto.TokenResponse;
 import io.restassured.RestAssured;
 import io.restassured.authentication.FormAuthConfig;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
@@ -28,6 +27,19 @@ class AuthControllerTest {
     @BeforeEach
     void setUp() {
         RestAssured.port = port;
+    }
+
+    @Test
+    void basicLogin() {
+        MemberResponse member = RestAssured
+                .given().log().all()
+                .auth().preemptive().basic(EMAIL, PASSWORD)
+                .accept(MediaType.APPLICATION_JSON_VALUE)
+                .when().get("/members/my")
+                .then().log().all()
+                .statusCode(HttpStatus.OK.value()).extract().as(MemberResponse.class);
+
+        assertThat(member.getEmail()).isEqualTo(EMAIL);
     }
 
     @Test
@@ -58,19 +70,6 @@ class AuthControllerTest {
                 .auth().oauth2(accessToken)
                 .accept(MediaType.APPLICATION_JSON_VALUE)
                 .when().get("/members/you")
-                .then().log().all()
-                .statusCode(HttpStatus.OK.value()).extract().as(MemberResponse.class);
-
-        assertThat(member.getEmail()).isEqualTo(EMAIL);
-    }
-
-    @Test
-    void basicLogin() {
-        MemberResponse member = RestAssured
-                .given().log().all()
-                .auth().preemptive().basic(EMAIL, PASSWORD)
-                .accept(MediaType.APPLICATION_JSON_VALUE)
-                .when().get("/members/my")
                 .then().log().all()
                 .statusCode(HttpStatus.OK.value()).extract().as(MemberResponse.class);
 
