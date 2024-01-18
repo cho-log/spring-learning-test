@@ -15,7 +15,7 @@ import org.springframework.http.MediaType;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class AuthControllerTest {
+class AuthTest {
     private static final String USERNAME_FIELD = "email";
     private static final String PASSWORD_FIELD = "password";
     private static final String EMAIL = "email@email.com";
@@ -35,7 +35,7 @@ class AuthControllerTest {
                 .given().log().all()
                 .auth().preemptive().basic(EMAIL, PASSWORD)
                 .accept(MediaType.APPLICATION_JSON_VALUE)
-                .when().get("/members/my")
+                .when().get("/members/me/basic")
                 .then().log().all()
                 .statusCode(HttpStatus.OK.value()).extract().as(MemberResponse.class);
 
@@ -48,7 +48,7 @@ class AuthControllerTest {
                 .given().log().all()
                 .auth().form(EMAIL, PASSWORD, new FormAuthConfig("/login/session", USERNAME_FIELD, PASSWORD_FIELD))
                 .accept(MediaType.APPLICATION_JSON_VALUE)
-                .when().get("/members/me")
+                .when().get("/members/me/session")
                 .then().log().all()
                 .statusCode(HttpStatus.OK.value()).extract().as(MemberResponse.class);
 
@@ -69,7 +69,7 @@ class AuthControllerTest {
                 .given().log().all()
                 .auth().oauth2(accessToken)
                 .accept(MediaType.APPLICATION_JSON_VALUE)
-                .when().get("/members/you")
+                .when().get("/members/me/token")
                 .then().log().all()
                 .statusCode(HttpStatus.OK.value()).extract().as(MemberResponse.class);
 
