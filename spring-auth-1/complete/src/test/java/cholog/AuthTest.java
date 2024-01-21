@@ -4,7 +4,6 @@ import cholog.auth.dto.MemberResponse;
 import cholog.auth.dto.TokenRequest;
 import cholog.auth.dto.TokenResponse;
 import io.restassured.RestAssured;
-import io.restassured.authentication.FormAuthConfig;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -44,9 +43,16 @@ class AuthTest {
 
     @Test
     void sessionLogin() {
+        String cookie = RestAssured
+                .given().log().all()
+                .param(USERNAME_FIELD, EMAIL)
+                .param(PASSWORD_FIELD, PASSWORD)
+                .when().post("/login/session")
+                .then().log().all().extract().header("Set-Cookie").split(";")[0];
+
         MemberResponse member = RestAssured
                 .given().log().all()
-                .auth().form(EMAIL, PASSWORD, new FormAuthConfig("/login/session", USERNAME_FIELD, PASSWORD_FIELD))
+                .header("Cookie", cookie)
                 .accept(MediaType.APPLICATION_JSON_VALUE)
                 .when().get("/members/me/session")
                 .then().log().all()
@@ -67,7 +73,7 @@ class AuthTest {
 
         MemberResponse member = RestAssured
                 .given().log().all()
-                .auth().oauth2(accessToken)
+                .header("Authorization", "Bearer " + accessToken)
                 .accept(MediaType.APPLICATION_JSON_VALUE)
                 .when().get("/members/me/token")
                 .then().log().all()
