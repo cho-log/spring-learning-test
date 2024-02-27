@@ -1,4 +1,4 @@
-package cholog.config;
+package cholog.configuration;
 
 public class AuthService {
     public String findMemberName() {

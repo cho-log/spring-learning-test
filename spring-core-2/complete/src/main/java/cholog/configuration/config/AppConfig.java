@@ -1,5 +1,7 @@
-package cholog.config;
+package cholog.configuration.config;
 
+import cholog.configuration.AuthService;
+import cholog.configuration.AuthenticationPrincipalArgumentResolver;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

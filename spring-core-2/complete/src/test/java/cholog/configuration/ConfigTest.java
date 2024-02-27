@@ -1,6 +1,6 @@
-package cholog.config;
+package cholog.configuration;
 
-import cholog.SpringCoreApplication;
+import cholog.configuration.config.AppConfig;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;

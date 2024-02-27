@@ -1,5 +1,6 @@
 package cholog.profile;
 
+import cholog.profile.config.ProfileConfig;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
