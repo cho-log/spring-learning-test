@@ -148,6 +148,23 @@ public class AppConfig {
 
 <br>
 
+## 2.3. Externalized Configuration (Spring Boot)
+
+<br>
+
+프로퍼티 값을 설정하는 방법은 `@PropertySource` 외에도 다양합니다.
+
+특히 Spring Boot 를 사용한다면 `application.properties`(혹은 `application.yaml`) 파일을 사용해 프로퍼티 값을 편하게 설정할 수 있습니다.
+
+<br>
+
+### 학습 테스트
+- 테스트 메서드: `cholog.property.ConfigDataFileTest.getPropertyValueWithSpringBoot`
+- 수행 방법
+  - `cholog.property.config.AuthConfig` 클래스를 이용하여 학습 테스트를 성공시키세요.
+
+<br>
+
 # 3. Profile
 
 <br>
@@ -169,7 +186,7 @@ public class AppConfig {
 
 <br>
 
-#### @Configuration 클래스에 적용하는 경우
+### @Configuration 클래스에 적용하는 경우
 클래스 내에서 정의된 Bean들은 `development` profile일 때만 등록됩니다.
 ```java
 @Configuration
@@ -187,7 +204,7 @@ public class StandaloneDataConfig {
 }
 ```
 
-#### @Bean 메서드에 적용하는 경우
+### @Bean 메서드에 적용하는 경우
 profile에 따라 등록되는 Datasource Bean이 달라집니다. 
 ```java
 @Configuration
@@ -226,10 +243,13 @@ public class AppConfig {
 # 4. 더 생각해보기
 - 스프링 컨테이너를 정의하는 방법은 다양합니다.`@Component`, `@Autowired` 어노테이션을 사용하는 방법과 비교하여 Java 코드로 빈을 관리할 때의 장단점에 대해 생각해보고, 어떤 상황에서 어떤 방식을 택할지 고민해보세요.
 - 이 외에도 XML을 사용해 스프링 컨테이너를 정의할 수도 있습니다. XML을 사용하는 방법에 대해 알아보고, Java 코드와 XML을 사용하는 방법을 비교해보세요.
+- Spring Boot는 프로퍼티 파일 컨벤션(`application-{profile}`)을 사용해 활성 프로파일에 대한 프로퍼티 파일을 로드합니다. 예를 들어, 활성 프로파일이 prod 라면 `application.properties`, `application-prod.properties` 파일을 로드합니다. 이러한 특성을 사용해 어떤 값을 프로퍼티 파일에서 관리할지 생각해 보세요.   
 
 # 5. 참고자료
 - [Spring - @Configuration](https://docs.spring.io/spring-framework/reference/core/beans/java/configuration-annotation.html)
 - [Spring - @Bean](https://docs.spring.io/spring-framework/reference/core/beans/java/bean-annotation.html)
 - [Spring - @PropertySource](https://docs.spring.io/spring-framework/reference/core/beans/environment.html#beans-using-propertysource)
+- [Spring Boot - Externalized Configuration](https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.external-config)
 - [Spring - @Value](https://docs.spring.io/spring-framework/reference/core/beans/annotation-config/value-annotations.html)
 - [Spring - @Profile](https://docs.spring.io/spring-framework/reference/core/beans/environment.html#beans-definition-profiles-java)
+- [Spring Boot - Profile Specific Files](https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.external-config.files.profile-specific)
