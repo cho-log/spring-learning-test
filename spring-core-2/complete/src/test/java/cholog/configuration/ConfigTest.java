@@ -11,7 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class ConfigTest {
     @Test
-    void createBean() {
+    void shouldCreateBean() {
          ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
          String[] beanDefinitionNames = context.getBeanDefinitionNames();
          System.out.println(Arrays.toString(beanDefinitionNames));
@@ -21,7 +21,7 @@ class ConfigTest {
     }
 
     @Test
-    void createBeansThatHasDependency() {
+    void shouldCreateBeansThatHasDependency() {
         ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
         String[] beanDefinitionNames = context.getBeanDefinitionNames();
         System.out.println(Arrays.toString(beanDefinitionNames));
