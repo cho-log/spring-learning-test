@@ -112,7 +112,7 @@ public class AppConfig {
 <br>
 
 ### 학습 테스트
-- 테스트 메서드: `cholog.property.PropertySourceConfigTest.getSecretKeyFromUsingEnvironment`
+- 테스트 메서드: `cholog.property.PropertySourceConfigTest.getPropertyValueFromUsingEnvironment`
 - 수행 방법
   - `cholog.property.config.PropertySourceConfig` 클래스를 이용하여 학습 테스트를 성공시키세요.
 
@@ -142,7 +142,7 @@ public class AppConfig {
 <br>
 
 ### 학습 테스트
-- 테스트 메서드: `cholog.property.PropertySourceConfigTest.getSecretKeyFromUsingAnnotation`
+- 테스트 메서드: `cholog.property.PropertySourceConfigTest.getPropertyValueFromUsingAnnotation`
 - 수행 방법
   - `cholog.property.config.PropertySourceConfig` 클래스를 이용하여 학습 테스트를 성공시키세요.
 
