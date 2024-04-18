@@ -7,10 +7,10 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class QueryingDAO {
+public class QueryingDao {
     private JdbcTemplate jdbcTemplate;
 
-    public QueryingDAO(JdbcTemplate jdbcTemplate) {
+    public QueryingDao(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
