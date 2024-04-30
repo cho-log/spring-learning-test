@@ -5,9 +5,9 @@
 <img src="src/main/resources/image/basic.png">
 
 기본 인증(Basic Authentication) 방식은 사용자의 아이디와 비밀번호를 웹 사이트에 알려주는 간단한 방법입니다.
-사용자 이름과 비밀번호를 웹 브라우저에서 서버로 보낼 때는 'Authorization: Basic <credentials>'라는 형태로 요청 헤더에 정보를 실어 보냅니다.
-여기서 '<credentials>' 부분에는 사용자의 아이디와 비밀번호를 콜론 하나로 이어붙인 문자열을 Base64라는 방식으로 암호화합니다.
-실제로 보내지는 정보는 암호화된 문자열 형태로 전송되어, 직접 눈으로 봤을 때는 사용자 이름이나 비밀번호를 쉽게 알아볼 수 없습니다.
+사용자 이름과 비밀번호를 웹 브라우저에서 서버로 보낼 때는 `Authorization: Basic <credentials>`라는 형태로 요청 헤더에 정보를 실어 보냅니다.
+여기서 `<credentials>` 부분에는 사용자의 아이디와 비밀번호를 콜론 하나로 이어붙인 문자열(`{{userName}}:{{password}}`)을 Base64라는 방식으로 인코딩합니다.
+실제로 보내지는 정보는 Base64로 인코딩된 문자열 형태로 전송되어, 직접 눈으로 봤을 때는 사용자 이름이나 비밀번호를 쉽게 알아볼 수 없습니다.
 
 ```http request
 Headers: Authorization=Basic ZW1haWxAZW1haWwuY29tOjEyMzQ=
