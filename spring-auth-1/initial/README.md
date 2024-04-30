@@ -5,9 +5,9 @@
 <img src="src/main/resources/image/basic.png">
 
 기본 인증(Basic Authentication) 방식은 사용자의 아이디와 비밀번호를 웹 사이트에 알려주는 간단한 방법입니다.
-사용자 이름과 비밀번호를 웹 브라우저에서 서버로 보낼 때는 'Authorization: Basic <credentials>'라는 형태로 요청 헤더에 정보를 실어 보냅니다.
-여기서 '<credentials>' 부분에는 사용자의 아이디와 비밀번호를 콜론 하나로 이어붙인 문자열을 Base64라는 방식으로 암호화합니다.
-실제로 보내지는 정보는 암호화된 문자열 형태로 전송되어, 직접 눈으로 봤을 때는 사용자 이름이나 비밀번호를 쉽게 알아볼 수 없습니다.
+사용자 이름과 비밀번호를 웹 브라우저에서 서버로 보낼 때는 `Authorization: Basic <credentials>`라는 형태로 요청 헤더에 정보를 실어 보냅니다.
+여기서 `<credentials>` 부분에는 사용자의 아이디와 비밀번호를 콜론 하나로 이어붙인 문자열(`{{userName}}:{{password}}`)을 Base64라는 방식으로 인코딩합니다.
+실제로 보내지는 정보는 Base64로 인코딩된 문자열 형태로 전송되어, 직접 눈으로 봤을 때는 사용자 이름이나 비밀번호를 쉽게 알아볼 수 없습니다.
 
 ```http request
 Headers: Authorization=Basic ZW1haWxAZW1haWwuY29tOjEyMzQ=
@@ -35,8 +35,8 @@ AuthInfo authInfo = authorizationExtractor.extract(request);
 ### 학습 테스트
 - 테스트 메서드: `cholog.AuthTest.basicLogin`
 - 수행 방법
-    - `cholog.BasicLoginController` 을 이용하여 학습 테스트를 성공시키세요.
-    - `.auth().preemptive().basic()`과 `.auth().basic()`의 차이를 학습해보세요.
+  - `cholog.BasicLoginController` 을 이용하여 학습 테스트를 성공시키세요.
+  - `.auth().preemptive().basic()`과 `.auth().basic()`의 차이를 학습해보세요.
 
 <br>
 
@@ -78,7 +78,7 @@ Headers: Cookie=JSESSIONID=89EA9B9B9F00EAC2B8D2208649EA6260
 ### 학습 테스트
 - 테스트 메서드: `cholog.AuthTest.sessionLogin`
 - 수행 방법
-    - `cholog.SessionLoginController` 이용하여 학습 테스트를 성공시키세요.
+  - `cholog.SessionLoginController` 이용하여 학습 테스트를 성공시키세요.
 
 <br>
 
@@ -109,4 +109,4 @@ Headers: Authorization=Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJlbWFpbEBlbWFpbC5jb
 ### 학습 테스트
 - 테스트 메서드: `cholog.AuthTest.tokenLogin`
 - 수행 방법
-    - `cholog.TokenLoginController` 이용하여 학습 테스트를 성공시키세요.
+  - `cholog.TokenLoginController` 이용하여 학습 테스트를 성공시키세요.
