@@ -20,6 +20,7 @@ public class RepositoryTest {
     @Test
     void save() {
         customerRepository.save(new Customer("Jack", "Bauer"));
+        customerRepository.save(new Customer("Chloe", "O'Brian"));
 
         Iterable<Customer> customers = customerRepository.findAll();
         assertThat(customers).extracting(Customer::getFirstName).containsOnly("Jack", "Chloe");
