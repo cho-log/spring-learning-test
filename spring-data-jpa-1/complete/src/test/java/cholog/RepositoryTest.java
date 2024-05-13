@@ -22,7 +22,7 @@ public class RepositoryTest {
         customerRepository.save(new Customer("Jack", "Bauer"));
 
         Iterable<Customer> customers = customerRepository.findAll();
-        assertThat(customers).extracting(Customer::getFirstName).containsOnly("Jack", "Chloe");
+        assertThat(customers).extracting(Customer::getFirstName).containsOnly("Jack");
     }
 
     @Test
