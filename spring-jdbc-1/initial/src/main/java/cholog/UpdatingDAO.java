@@ -33,6 +33,7 @@ public class UpdatingDAO {
      */
     public void insert(Customer customer) {
         //todo: customer를 디비에 저장하기
+        jdbcTemplate.update("insert into customers (first_name, last_name) values (?,?)",customer.getFirstName(), customer.getLastName());
     }
     /**
      * public int update(String sql, @Nullable Object... args)
