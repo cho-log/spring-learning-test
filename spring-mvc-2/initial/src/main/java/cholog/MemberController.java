@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicLong;
+
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -50,19 +52,19 @@ public class MemberController {
             .orElseThrow(RuntimeException::new);
 
         member.update(member);
-        return null;
+        return ResponseEntity.ok(null);
     }
 
     @DeleteMapping("/members/{id}")
-    public ResponseEntity<Void> delete() {
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
         // TODO: url 상의 id 정보를 받아 member를 삭제한다.
         Member member = members.stream()
-            .filter(it -> Objects.equals(it.getId(), null))
+            .filter(it -> Objects.equals(it.getId(), id))
             .findFirst()
             .orElseThrow(RuntimeException::new);
 
         members.remove(member);
 
-        return null;
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
     }
 }
