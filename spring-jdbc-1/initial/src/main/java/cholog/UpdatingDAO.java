@@ -39,8 +39,10 @@ public class UpdatingDAO {
      * public int update(String sql, @Nullable Object... args)
      */
     public int delete(Long id) {
-        //todo: id에 해당하는 customer를 지우고, 해당 쿼리에 영향받는 row 수반환하기
-        return 0;
+        //todo: id에 해당하는 customer를 지우고, 해당 쿼리에 영향받는 row 수 반환하기
+        int deletedCount = jdbcTemplate.queryForObject("select count(*) from customers where id = ?", Integer.class, id);
+        jdbcTemplate.update("delete from customers where id = ?", id);
+        return deletedCount;
     }
 
     /**
