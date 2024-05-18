@@ -53,8 +53,13 @@ public class UpdatingDAO {
         KeyHolder keyHolder = new GeneratedKeyHolder();
 
         //todo : keyHolder에 대해 학습하고, Customer를 저장후 저장된 Customer의 id를 반환하기
-
-        Long id = keyHolder.getKey().longValue();
+        jdbcTemplate.update(connection ->{
+            PreparedStatement ps = connection.prepareStatement(
+                    sql, new String[]{"id"});
+            ps.setString(1, customer.getFirstName());
+            ps.setString(2, customer.getLastName());
+            return  ps;
+        }, keyHolder);
 
         return keyHolder.getKey().longValue();
     }
