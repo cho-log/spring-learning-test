@@ -2,14 +2,13 @@ package cholog;
 
 import org.springframework.web.client.RestClient;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class TodoRestClient {
+public class TodoClientWithRestClient {
     private final RestClient restClient;
 
-    public TodoRestClient(RestClient restClient) {
+    public TodoClientWithRestClient(RestClient restClient) {
         this.restClient = restClient;
     }
 
