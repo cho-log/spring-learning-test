@@ -13,17 +13,17 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 public class RestClientTest {
 
     @Autowired
-    private TodoRestClient todoRestClient;
+    private TodoClientWithRestClient todoClient;
 
     @Test
     public void testGetTodos() {
-        List<Todo> todos = todoRestClient.getTodos();
+        List<Todo> todos = todoClient.getTodos();
         assertThat(todos).isNotEmpty();
     }
 
     @Test
     public void testGetTodoWithId() {
-        Todo todo = todoRestClient.getTodoById(1L);
+        Todo todo = todoClient.getTodoById(1L);
         assertThat(todo.getTitle()).isNotEmpty();
     }
 
@@ -31,7 +31,7 @@ public class RestClientTest {
     public void testGetTodoWithNonExistentId() {
         Long nonExistentId = 9999L;
 
-        assertThatThrownBy(() -> todoRestClient.getTodoById(nonExistentId))
+        assertThatThrownBy(() -> todoClient.getTodoById(nonExistentId))
                 .isInstanceOf(TodoException.NotFound.class);
     }
 }

@@ -4,22 +4,14 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.List;
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 @SpringBootTest
-public class RestClientTest {
+public class RestTemplateTest {
 
     @Autowired
-    private TodoClientWithRestClient todoClient;
-
-    @Test
-    public void testGetTodos() {
-        List<Todo> todos = todoClient.getTodos();
-        assertThat(todos).isNotEmpty();
-    }
+    private TodoClientWithRestTemplate todoClient;
 
     @Test
     public void testGetTodoWithId() {
