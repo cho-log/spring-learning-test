@@ -14,14 +14,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @JdbcTest
 public class QueryingDaoTest {
-    private QueryingDAO queryingDAO;
+    private QueryingDao queryingDao;
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
     @BeforeEach
     void setUp() {
-        queryingDAO = new QueryingDAO(jdbcTemplate);
+        queryingDao = new QueryingDao(jdbcTemplate);
 
         jdbcTemplate.execute("DROP TABLE customers IF EXISTS");
         jdbcTemplate.execute("CREATE TABLE customers(" +
@@ -37,21 +37,21 @@ public class QueryingDaoTest {
 
     @Test
     void count() {
-        int count = queryingDAO.count();
+        int count = queryingDao.count();
 
         assertThat(count).isEqualTo(4);
     }
 
     @Test
     void getLastName() {
-        String lastName = queryingDAO.getLastName(1L);
+        String lastName = queryingDao.getLastName(1L);
 
         assertThat(lastName).isEqualTo("Woo");
     }
 
     @Test
     void findCustomerById() {
-        Customer customer = queryingDAO.findCustomerById(1L);
+        Customer customer = queryingDao.findCustomerById(1L);
 
         assertThat(customer).isNotNull();
         assertThat(customer.getLastName()).isEqualTo("Woo");
@@ -59,14 +59,14 @@ public class QueryingDaoTest {
 
     @Test
     void findAllCustomers() {
-        List<Customer> customers = queryingDAO.findAllCustomers();
+        List<Customer> customers = queryingDao.findAllCustomers();
 
         assertThat(customers).hasSize(4);
     }
 
     @Test
     void findCustomerByFirstName() {
-        List<Customer> customers = queryingDAO.findCustomerByFirstName("Josh");
+        List<Customer> customers = queryingDao.findCustomerByFirstName("Josh");
 
         assertThat(customers).hasSize(2);
     }

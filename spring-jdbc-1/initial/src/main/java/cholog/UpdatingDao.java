@@ -9,10 +9,10 @@ import org.springframework.stereotype.Repository;
 import java.sql.PreparedStatement;
 
 @Repository
-public class UpdatingDAO {
+public class UpdatingDao {
     private JdbcTemplate jdbcTemplate;
 
-    public UpdatingDAO(JdbcTemplate jdbcTemplate) {
+    public UpdatingDao(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 

@@ -15,16 +15,16 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @JdbcTest
 public class UpdatingDaoTest {
-    private UpdatingDAO updatingDAO;
-    private QueryingDAO queryingDAO;
+    private UpdatingDao updatingDao;
+    private QueryingDao queryingDao;
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
     @BeforeEach
     void setUp() {
-        queryingDAO = new QueryingDAO(jdbcTemplate);
-        updatingDAO = new UpdatingDAO(jdbcTemplate);
+        queryingDao = new QueryingDao(jdbcTemplate);
+        updatingDao = new UpdatingDao(jdbcTemplate);
 
         jdbcTemplate.execute("DROP TABLE customers IF EXISTS");
         jdbcTemplate.execute("CREATE TABLE customers(" +
@@ -40,16 +40,16 @@ public class UpdatingDaoTest {
     @Test
     void insert() {
         Customer customer = new Customer("Leonor", "Watling");
-        updatingDAO.insert(customer);
+        updatingDao.insert(customer);
 
-        List<Customer> customers = queryingDAO.findCustomerByFirstName("Leonor");
+        List<Customer> customers = queryingDao.findCustomerByFirstName("Leonor");
 
         assertThat(customers).hasSize(1);
     }
 
     @Test
     void delete() {
-        int rowNum = updatingDAO.delete(1L);
+        int rowNum = updatingDao.delete(1L);
 
         assertThat(rowNum).isEqualTo(1);
     }
@@ -57,7 +57,7 @@ public class UpdatingDaoTest {
     @Test
     void keyHolder() {
         Customer customer = new Customer("Leonor", "Watling");
-        Long id = updatingDAO.insertWithKeyHolder(customer);
+        Long id = updatingDao.insertWithKeyHolder(customer);
 
         assertThat(id).isNotNull();
     }
