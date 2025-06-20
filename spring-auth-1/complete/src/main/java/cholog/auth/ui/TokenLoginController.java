@@ -45,7 +45,7 @@ public class TokenLoginController {
      * ex) request sample
      * <p>
      * GET /members/me/token HTTP/1.1
-     * authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJlbWFpbEBlbWFpbC5jb20iLCJpYXQiOjE2MTAzNzY2NzIsImV4cCI6MTYxMDM4MDI3Mn0.Gy4g5RwK1Nr7bKT1TOFS4Da6wxWh8l97gmMQDgF8c1E
+     * authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJlbWFpbEBlbWFpbC5jb20iLCJpYXQiOjE3NTA0MTY1MzksImV4cCI6MTc1MDQyMDEzOX0.mhaPDrphpRE9mE1YEZreOmDjZCapBrFe-K4SZvXMlAY
      * accept: application/json
      */
     @GetMapping("/members/me/token")
